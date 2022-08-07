@@ -1,0 +1,19 @@
+﻿@page
+@model Server.Pages.Admin.CultureManagement.UpdateModel
+@{
+    var pageTitle =
+        Resources.PageTitles.UpdateCulture;
+
+    ViewData["PageTitle"] = pageTitle;
+
+    if (System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft)
+    {
+        Layout =
+            "Layouts/Rtl/_Layout";
+    }
+    else
+    {
+        Layout =
+            "Layouts/Ltr/_Layout";
+    }
+}

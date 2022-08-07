@@ -1,0 +1,99 @@
+﻿@page
+@model Server.Pages.Admin.CultureManagement.IndexModel
+@inject Infrastructure.Settings.ApplicationSettings applicationSettings
+@{
+    var pageTitle =
+        Resources.PageTitles.CultureManagement;
+
+    ViewData["PageTitle"] = pageTitle;
+
+    if (System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft)
+    {
+        Layout =
+            "Layouts/Rtl/_Layout";
+    }
+    else
+    {
+        Layout =
+            "Layouts/Ltr/_Layout";
+    }
+}
+@{
+    List<string> activatedCulture =
+    applicationSettings.CultureSettings
+    .SupportedCultureNames.ToList<string>();
+
+    string activtedCultureFinalized = string.Join(",", activatedCulture.ToArray()[..2]).ToUpper();
+}
+@{
+    string defaultCulture =
+    applicationSettings.CultureSettings
+    .DefaultCultureName![..2]
+    .ToUpper();
+}
+
+<div class="container m-4">
+    <div class="col table-responsive">
+        <table class="@(applicationSettings.CultureManagementSettings.TableStyle)">
+
+            <caption>@(Resources.DataDictionary.ListOfCultures)</caption>
+
+            <thead class="@(applicationSettings.CultureManagementSettings.TableHeaderStyle)">
+                <tr class="row-cols-12">
+                    <td>@(Resources.DataDictionary.Country)</td>
+                    <td>@(Resources.DataDictionary.Language)</td>
+                    <td>@(Resources.DataDictionary.IsActive)</td>
+                    <td>@(Resources.DataDictionary.IsDefault)</td>
+                    <td>@(Resources.DataDictionary.Update)/@(Resources.DataDictionary.Details)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in applicationSettings.CultureSettings.SupportedCultureNames!)
+                {
+                    var countryName =
+                    item[..2].ToUpper();
+
+                    var contryFlag =
+                    item[3..].ToLower();
+
+                    <tr class="row-cols-6">
+                      <td class="row-cols-4 fi fi-@(countryName)></td>
+                       <td class="row-cols-4">@(countryName)</td>
+                        <td class="row-cols-2">
+                            @if (activtedCultureFinalized.Contains(countryName))
+                            {
+                                <input type="checkbox" class="form-check-input" value="@(countryName)" id="@(countryName)" checked disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="form-check-input" value="@(countryName)" id="@(countryName)" disabled />
+                            }
+                        </td>
+                        <td class="row-cols-2">
+                            @if (defaultCulture == countryName)
+                            {
+                                <input type="checkbox" class="form-check-input" value="@(countryName)" id="@(countryName)" checked disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="form-check-input" value="@(countryName)" id="@(countryName)" disabled />
+                            }
+                        </td>
+                        <td>
+                            <a asp-page="./Update" asp-route-id="" class="mx-1 text-info text-decoration-none">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            |
+                            <a asp-page="./Details" asp-route-id="" class="mx-1 text-info text-decoration-none">
+                                <i class="bi bi-zoom-in"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot class="@(applicationSettings.CultureManagementSettings.TableFooterStyle)">
+            </tfoot>
+        </table>
+    </div>
+</div>
+
