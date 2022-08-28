@@ -57,7 +57,9 @@
                     item[3..].ToLower();
 
                     <tr class="row-cols-6">
-                      <td class="row-cols-4 fi fi-@(countryName)></td>
+                      <td class="row-cols-4">
+                          <span class="fi fi-@(contryFlag)"></span>
+                      </td>
                        <td class="row-cols-4">@(countryName)</td>
                         <td class="row-cols-2">
                             @if (activtedCultureFinalized.Contains(countryName))

@@ -8,13 +8,13 @@
             Database.EnsureCreated();
         }
 
+        public Microsoft.EntityFrameworkCore.DbSet<Domain.Culture>? Cultures { get; set; }
+
         protected override void OnConfiguring
             (Microsoft.EntityFrameworkCore.DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
         }
-
-        public Microsoft.EntityFrameworkCore.DbSet<Domain.Culture>? Cultures { get; set; }
 
         protected override void OnModelCreating
             (Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)

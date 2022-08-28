@@ -15,7 +15,7 @@
 
 		// **********
 		[System.ComponentModel.DataAnnotations.Display
-			(Name = nameof(Resources.DataDictionary.Culture),
+			(Name = nameof(Resources.DataDictionary.CultureName),
 			ResourceType = typeof(Resources.DataDictionary))]
 
 		[System.ComponentModel.DataAnnotations.Required

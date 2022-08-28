@@ -129,9 +129,6 @@
   <data name="Country" xml:space="preserve">
     <value>کشور</value>
   </data>
-  <data name="Culture" xml:space="preserve">
-    <value>زبان(کشور)</value>
-  </data>
   <data name="CultureManagement" xml:space="preserve">
     <value>مدیریت زبان </value>
   </data>
