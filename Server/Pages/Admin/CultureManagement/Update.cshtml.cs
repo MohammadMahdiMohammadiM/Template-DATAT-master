@@ -1,10 +1,16 @@
 namespace Server.Pages.Admin.CultureManagement
 {
     [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
-    public class UpdateModel : Infrastructure.BasePageModel
+    public class UpdateModel : Infrastructure.BasePageModelWithDatabaseContext
     {
-        public UpdateModel() : base()
+        public UpdateModel 
+            (Data.DatabaseContext databaseContext,
+             Microsoft.Extensions.Logging.ILogger<UpdateModel> logger) :
+		     base(databaseContext: databaseContext)
         {
+            //Logger = logger;
+
+            //ViewModel = new();
         }
 
         public void OnGet()

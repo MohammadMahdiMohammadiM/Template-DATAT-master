@@ -123,11 +123,23 @@
   <data name="BackToList" xml:space="preserve">
     <value>بازگشت به فهرست</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>منصرف شدم</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>تایید حذف</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>ایجاد</value>
   </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>ایجاد {0} جدید</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>جزئیات</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>ویرایش</value>
@@ -141,11 +153,23 @@
   <data name="Home" xml:space="preserve">
     <value>خانه</value>
   </data>
+  <data name="ListOf" xml:space="preserve">
+    <value>فهرست</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>ورود</value>
   </data>
   <data name="LoginWithGoogle" xml:space="preserve">
     <value>ورود از طریق گوگل</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>قبلی</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>ثبت‌نام</value>

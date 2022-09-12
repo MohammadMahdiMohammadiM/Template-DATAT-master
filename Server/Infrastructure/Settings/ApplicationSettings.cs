@@ -6,6 +6,9 @@
 
 		public ApplicationSettings() : base()
 		{
+			IconSettings =
+				new IconSettings();
+
 			ToastSettings =
 				new ToastSettings();
 
@@ -15,7 +18,8 @@
 			FileManagerSettings =
 				new FileManagerSettings();
 
-			CultureManagementSettings = new();
+			TablesDefaultSettings =
+				new TablesDefaultSettings();
 		}
 
 		// **********
@@ -31,6 +35,10 @@
 		// **********
 
 		// **********
+		public IconSettings IconSettings { get; set; }
+		// **********
+
+		// **********
 		public ToastSettings ToastSettings { get; set; }
 		// **********
 
@@ -43,7 +51,7 @@
 		// **********
 
 		// **********
-		public CultureManagementSettings CultureManagementSettings { get; set; }
+		public TablesDefaultSettings TablesDefaultSettings { get; set; }
 		// **********
 	}
 }

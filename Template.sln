@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{D99569
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Models", "Domain Models", "{C2D352B2-BDD2-4EB8-9D2F-0A12E22CFA08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{06E1D242-1EAA-404F-B38A-2BEDCDF93421}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Persistence\Data.csproj", "{06E1D242-1EAA-404F-B38A-2BEDCDF93421}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{971675B3-0EF8-488E-A586-C8D5489CD25C}"
 EndProject
@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Constants.csproj", "{5A700AAA-9917-4FF3-9126-98A9E6916CD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,10 @@ Global
 		{7A072591-2B39-4F10-9210-3063C0A31220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A072591-2B39-4F10-9210-3063C0A31220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A072591-2B39-4F10-9210-3063C0A31220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A700AAA-9917-4FF3-9126-98A9E6916CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A700AAA-9917-4FF3-9126-98A9E6916CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A700AAA-9917-4FF3-9126-98A9E6916CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A700AAA-9917-4FF3-9126-98A9E6916CD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{BFFDE3F6-84DC-4B5B-B91D-620CC2D687A3} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
 		{FB706080-CB68-471C-B2B2-919649CD7497} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
 		{7A072591-2B39-4F10-9210-3063C0A31220} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
+		{5A700AAA-9917-4FF3-9126-98A9E6916CD4} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2B1A580-9B54-4F8E-A48F-A1097A5C5F8C}

@@ -133,7 +133,10 @@
     <value>مدیریت زبان </value>
   </data>
   <data name="CultureName" xml:space="preserve">
-    <value>نام زبان(کشور)</value>
+    <value>نام زبان</value>
+  </data>
+  <data name="Cultures" xml:space="preserve">
+    <value>زبان ها</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>توضیحات</value>
@@ -144,8 +147,20 @@
   <data name="EmailAddress" xml:space="preserve">
     <value>نشانی پست الکترونیکی</value>
   </data>
+  <data name="EnglishCulture" xml:space="preserve">
+    <value>زبان انگلیسی</value>
+  </data>
+  <data name="EnglishFlag" xml:space="preserve">
+    <value>پرچم انگلیس(آمریکا)</value>
+  </data>
   <data name="FileManager" xml:space="preserve">
     <value>مدیریت فایل‌ها</value>
+  </data>
+  <data name="Flag" xml:space="preserve">
+    <value>پرچم</value>
+  </data>
+  <data name="FranceFlag" xml:space="preserve">
+    <value>پرچم فرانسه</value>
   </data>
   <data name="FullName" xml:space="preserve">
     <value>نام و نام خانوادگی</value>
@@ -155,6 +170,9 @@
   </data>
   <data name="InsertDateTime" xml:space="preserve">
     <value>زمان درج</value>
+  </data>
+  <data name="IranFlag" xml:space="preserve">
+    <value>پرچم ایران</value>
   </data>
   <data name="IsActive" xml:space="preserve">
     <value>فعال</value>
@@ -167,6 +185,9 @@
   </data>
   <data name="IsDeleted" xml:space="preserve">
     <value>حذف شده</value>
+  </data>
+  <data name="IsSystemic" xml:space="preserve">
+    <value>سیستمی</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>زبان</value>
@@ -192,11 +213,17 @@
   <data name="Password" xml:space="preserve">
     <value>گذرواژه</value>
   </data>
+  <data name="Persian Culture" xml:space="preserve">
+    <value>زبان فارسی</value>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>مرا به خاطر داشته باش</value>
   </data>
   <data name="Resume" xml:space="preserve">
     <value>رزومه</value>
+  </data>
+  <data name="RowNumber" xml:space="preserve">
+    <value>ردیف</value>
   </data>
   <data name="SiteAuthor" xml:space="preserve">
     <value>داریوش تصدیقی</value>

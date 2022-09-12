@@ -4,93 +4,83 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Server.Pages.Admin.CultureManagement
 {
-    [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
-    public class DetailsModel : Infrastructure.BasePageModelWithDatabase
+    [Microsoft.AspNetCore.Authorization
+    .Authorize(Roles = Constants.Role.Admin)]
+    public class DetailsModel : Infrastructure.BasePageModelWithDatabaseContext
     {
-        #region Constructor
         public DetailsModel
-            (Microsoft.Extensions.Hosting.IHostEnvironment hostEnvironment,
-            Persistence.DatabaseContext databaseContext,
-            Microsoft.Extensions.Logging.ILogger<DetailsModel> logger,
-            Infrastructure.Settings.ApplicationSettings applicationSettings) : base(databaseContext: databaseContext)
+        (Data.DatabaseContext databaseContext,
+        Microsoft.Extensions.Logging.ILogger<DetailsModel> logger) :
+        base(databaseContext: databaseContext)
         {
             Logger = logger;
-            ViewModel = new();
-            HostEnvironment = hostEnvironment;
-            ApplicationSettings = applicationSettings;
-        }
-        #endregion /Constructor
 
-        #region Private Property(ies)
+            ViewModel = new();
+        }
+
         // **********
         private Microsoft.Extensions.Logging.ILogger<DetailsModel> Logger { get; }
         // **********
-        #endregion /Private Property(ies)
 
-        #region Public Read Only Property(ies)
-        // **********
-        public Microsoft.Extensions.Hosting.IHostEnvironment HostEnvironment { get; }
-        // **********
-
-        // **********
-        public Infrastructure.Settings.ApplicationSettings ApplicationSettings { get; }
-        // **********
-        #endregion /Public Read Only Property(ies)
-
-        #region Public Property(ies)
         // **********
         [Microsoft.AspNetCore.Mvc.BindProperty]
-        public ViewModels.Pages.Admin.CultureManagement.GetCultureItemDetailsViewModel ViewModel { get; private set; }
+        public ViewModels.Pages.Admin.CultureManagement.DetailsVeiwModel ViewModel { get; private set; }
         // **********
-        #endregion /Public Property(ies)
 
-        #region OnGet
-        public async
-         System.Threading.Tasks.Task
-         <Microsoft.AspNetCore.Mvc.IActionResult>
-        OnGetAsync(System.Guid? id)
+        public async System.Threading.Tasks.Task
+        <Microsoft.AspNetCore.Mvc.IActionResult> OnGetAsync(System.Guid ? id)
         {
             try
             {
-                if (id == null)
+                if (id.HasValue == false)
                 {
-                    string errorMessage = string.Format
-                        (Resources.Messages.Validations.Required,
-                        Resources.DataDictionary.Id);
+                    AddToastError
+                        (message: Resources.Messages.Errors.IdIsNull);
 
-                    AddPageError(message: errorMessage);
+                    return RedirectToPage(pageName: "Index");
                 }
-                else
-                {
+
 #pragma warning disable CS8601 // Possible null reference assignment.
-                    ViewModel =
-                        await DatabaseContext!.Cultures
-                        .Where(current => current.Id == id.Value)
-                        .Select(current => new ViewModels.Pages.Admin.CultureManagement.GetCultureItemDetailsViewModel
-                        {
-                            IsActive = current.IsActive,
-                            IsDeleted = current.IsDeleted,
-                            Description = current.Description,
-                            InsertDateTime = current.InsertDateTime,
-                            UpdateDateTime = current.UpdateDateTime,
-
-                        }).FirstOrDefaultAsync();
+                ViewModel =
+                    await
+                    DatabaseContext.Cultures
+                    .Where(current => current.Id == id.Value)
+                    .Select(current => new ViewModels.Pages.Admin.CultureManagement.DetailsVeiwModel()
+                    {
+                        //Id = current.Id,
+                        //Name = current.Name,
+                        //Flag = current.Flag,
+                        IsActive = current.IsActive,
+                        Description = current.Description,
+                        InsertDateTime = current.InsertDateTime,
+                        UpdateDateTime = current.UpdateDateTime,
+                    })
+                    .FirstOrDefaultAsync();
 #pragma warning restore CS8601 // Possible null reference assignment.
+                if (ViewModel == null)
+                {
+                    AddToastError
+                        (message: Resources.Messages.Errors.ThereIsNotAnyDataWithThisId);
+
+                    return RedirectToPage(pageName: "Index");
                 }
+
+                return Page();
             }
             catch (System.Exception ex)
             {
-                Logger.LogError(message: ex.Message);
+                Logger.LogError
+                    (message: Constants.Logger.ErrorMessage, args: ex.Message);
 
-                AddPageError(message: Resources.Messages.Errors.UnexpectedError);
+                AddToastError
+                    (message: Resources.Messages.Errors.UnexpectedError);
+
+                return RedirectToPage(pageName: "Index");
             }
             finally
             {
                 await DisposeDatabaseContextAsync();
             }
-
-            return Page();
         }
-        #endregion /OnGet
     }
 }

@@ -12,11 +12,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Constants\Constants.csproj" />
 		<ProjectReference Include="..\Dtat\Dtat.csproj" />
 		<ProjectReference Include="..\Domain\Domain.csproj" />
 		<ProjectReference Include="..\Resources\Resources.csproj" />
 		<ProjectReference Include="..\ViewModels\ViewModels.csproj" />
-		<ProjectReference Include="..\Persistence\Persistence.csproj" />
+		<ProjectReference Include="..\Persistence\Data.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

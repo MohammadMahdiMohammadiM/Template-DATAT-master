@@ -3,105 +3,33 @@
 @inject Infrastructure.Settings.ApplicationSettings applicationSettings
 @{
     var pageTitle =
-        Resources.PageTitles.CultureDetails;
+        $" {Resources.DataDictionary.Details} {Resources.DataDictionary.Culture} ";
 
-    ViewData["PageTitle"] = pageTitle;
-
-    if (System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft)
-    {
-        Layout =
-            "Layouts/Rtl/_Layout";
-    }
-    else
-    {
-        Layout =
-            "Layouts/Ltr/_Layout";
-    }
+    ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
 }
 
-<div class="container m-4">
-    <div class="row">
-        <div class="col-12 p-3 col-md-8 offset-md-2 p-md-4   col-lg-6 offset-lg-3 p-lg-5   bg-light border border-2 rounded-3 shadow-lg">
-            <fieldset disabled readonly>
-                <legend>
-                    @(pageTitle)
-                </legend>
+<section-form>
+    <fieldset>
+        <section-form-header>
+            @(pageTitle)
+        </section-form-header>
 
-                <hr />
+        <partial name="PartialViews/_DisplayPageMessages" />
 
-                <div class="mb-3">
-                    <label asp-for="ViewModel.Name" class="form-label"></label>
+        <readonly-input asp-for="ViewModel.Id" />
 
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-flag-fill"></i></div>
-                        <input asp-for="ViewModel.Name" class="form-control" />
-                    </div>
-                </div>
+        @*<readonly-input asp-for="ViewModel.Name" />*@
 
-                <div class="mb-3">
-                    <label asp-for="ViewModel.Description" class="form-label"></label>
+        <readonly-checkbox asp-for="ViewModel.IsActive" />
 
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-card-text"></i></div>
-                        <textarea asp-for="ViewModel.Description" class="form-control"> </textarea>
-                    </div>
-                </div>
+        <readonly-checkbox asp-for="ViewModel.IsDefault" />
 
-                @if (Model.ViewModel.InsertDateTime.HasValue)
-                {
-                    <div class="mb-3">
-                        <label asp-for="ViewModel.InsertDateTime" class="form-label"></label>
-                        <div class="input-group">
-                            <div class="input-group-text"><i class="bi bi-calendar2-date-fill"></i></div>
-                            <input placeholder="@(Model.ViewModel.InsertDateTime.Value.ToString(format: "yyyy-MM-dd HH:mm:dd"))" class="form-control" dir="ltr" />
-                        </div>
-                    </div>
-                }
+        @*<readonly-checkbox asp-for="ViewModel.IsDeletable" />*@
 
-                @if (Model.ViewModel.UpdateDateTime.HasValue)
-                {
-                    <div class="mb-3">
-                        <label asp-for="ViewModel.UpdateDateTime" class="form-label"></label>
-                        <div class="input-group">
-                            <div class="input-group-text"><i class="bi bi-calendar2-date-fill"></i></div>
-                            <input placeholder="@(Model.ViewModel.UpdateDateTime.Value.ToString(format: "yyyy-MM-dd HH:mm:dd"))" class="form-control" dir="ltr" />
-                        </div>
-                    </div>
-                }
+        <readonly-checkbox asp-for="ViewModel.InsertDateTime" />
 
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input asp-for="ViewModel.IsActive" class="form-check-input" />
-                        <label asp-for="ViewModel.IsActive" class="form-check-label"></label>
-                    </div>
-                </div>
+        <readonly-checkbox asp-for="ViewModel.UpdateDateTime" />
 
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input asp-for="ViewModel.IsDeletable" class="form-check-input" />
-                        <label asp-for="ViewModel.IsDeletable" class="form-check-label"></label>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input asp-for="ViewModel.IsDeleted" class="form-check-input" />
-                        <label asp-for="ViewModel.IsDeleted" class="form-check-label"></label>
-                    </div>
-                </div>
-            </fieldset>
-
-            <hr class="mt-4" />
-
-            <div class="text-center">
-                <a href="/">@(Resources.ButtonCaptions.Home)</a>
-                |
-                <a asp-page="Index">
-                    @(Resources.ButtonCaptions.BackToList)
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-</div>
+        <readonly-checkbox asp-for="ViewModel.Description" />
+    </fieldset>
+</section-form>

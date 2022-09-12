@@ -1,51 +1,78 @@
+using Domain;
 using System.Linq;
+using Infrastructure.Settings;
+using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Server.Pages.Admin.CultureManagement
+namespace Server.Pages.Admin.CultureManagement;
+
+[Microsoft.AspNetCore.Authorization.Authorize
+    (Roles = Constants.Role.Admin)]
+public class IndexModel : Infrastructure.BasePageModelWithDatabaseContext
 {
-    [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
-    public class IndexModel : Infrastructure.BasePageModel
+    public IndexModel
+        (Data.DatabaseContext databaseContext,
+        Microsoft.Extensions.Logging.ILogger<IndexModel> logger) :
+        base(databaseContext : databaseContext)
     {
-        #region Constructor
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public IndexModel
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-            (Microsoft.Extensions.Hosting.IHostEnvironment hostEnvironment,
-            Infrastructure.Settings.ApplicationSettings applicationSettings) : base()
-        {
-            HostEnvironment = hostEnvironment;
-            ApplicationSettings = applicationSettings;
-        }
-        #endregion /Constructor
+        Logger = logger;
 
-        #region Public Property(ies)
-        // **********
-        [Microsoft.AspNetCore.Mvc.BindProperty]
-        public ViewModels.Pages.Admin.CultureManagement.GetCultureItemDetailsViewModel ViewModel { get; private set; }
-        // **********
-        #endregion /Public Property(ies)
-
-
-        #region Public Read Only Property(ies)
-        // **********
-        public string[] SupportedCultureEnabled { get; set; }
-        // **********
-
-        // **********
-        public Microsoft.Extensions.Hosting.IHostEnvironment HostEnvironment { get; }
-        // **********
-
-        // **********
-        public Infrastructure.Settings.ApplicationSettings ApplicationSettings { get; }
-        // **********
-        #endregion /Public Read Only Property(ies)
-
-        #region OnGet
-        public void OnGet()
-        {
-          
-        }
-        #endregion /OnGet
-
+        ViewModel =
+            new System.Collections.Generic.List
+            <ViewModels.Pages.Admin.CultureManagement.IndexItemViewModel>();
     }
+
+    //**********
+    public System.Collections.Generic.IList
+        <ViewModels.Pages.Admin.CultureManagement.IndexItemViewModel> ViewModel
+    { get; private set; }
+    // **********
+
+    // **********
+    private Microsoft.Extensions.Logging.ILogger<IndexModel> Logger { get; }
+    // **********
+
+    public async System.Threading.Tasks.Task
+        <Microsoft.AspNetCore.Mvc.IActionResult> OnGetAsync()
+    {
+        try
+         {
+            await
+            DatabaseContext.Cultures
+            .OrderBy(current => current.Ordering)
+            .ThenBy(current => current.Name)
+            .Select(current => new ViewModels.Pages.Admin.CultureManagement.IndexItemViewModel
+            {
+                Id = current.Id,
+                Name = current.Name,
+                Flag = current.Flag,
+                Ordering = current.Ordering,
+                IsActive = current.IsActive,
+                IsDefault = current.IsDefault,
+                IsSystemic = current.IsSystemic,
+                InsertDateTime = current.InsertDateTime,
+                UpdateDateTime = current.UpdateDateTime,
+            })
+            .ToListAsync()
+            ;
+        }
+        catch (System.Exception ex)
+        {
+            Logger.LogError
+                (message: Constants.Logger.ErrorMessage, args: ex.Message);
+
+            AddPageError
+                (message: Resources.Messages.Errors.UnexpectedError);
+        }
+        finally
+        {
+            await DisposeDatabaseContextAsync();
+        }
+
+        return Page();
+    }
+
+
 }

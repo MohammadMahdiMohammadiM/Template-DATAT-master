@@ -17,12 +17,12 @@
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
 
 		[System.ComponentModel.DataAnnotations.MaxLength
-			(length: Domain.SeedWork.Constant.MaxLength.Username,
+			(length: Constants.MaxLength.Username,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
 
 		[System.ComponentModel.DataAnnotations.RegularExpression
-			(pattern: Domain.SeedWork.Constant.RegularExpression.Username,
+			(pattern: Constants.RegularExpression.Username,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Username))]
 		public string? Username { get; set; }
@@ -39,12 +39,12 @@
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
 
 		[System.ComponentModel.DataAnnotations.MaxLength
-			(length: Domain.SeedWork.Constant.MaxLength.Password,
+			(length: Constants.MaxLength.Password,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
 
 		[System.ComponentModel.DataAnnotations.RegularExpression
-			(pattern: Domain.SeedWork.Constant.RegularExpression.Password,
+			(pattern: Constants.RegularExpression.Password,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Password))]
 
@@ -63,11 +63,7 @@
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
 
-		//[System.ComponentModel.DataAnnotations.Compare
-		//	(otherProperty: "Password",
-		//	ErrorMessageResourceType = typeof(Resources.Messages.Validations),
-		//	ErrorMessageResourceName = nameof(Resources.Messages.Validations.Compare))]
-
+		
 		[System.ComponentModel.DataAnnotations.Compare
 			(otherProperty: nameof(Password),
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
@@ -89,18 +85,16 @@
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
 
 		[System.ComponentModel.DataAnnotations.MaxLength
-			(length: Domain.SeedWork.Constant.MaxLength.EmailAddress,
+			(length: Constants.MaxLength.EmailAddress,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
 
 		[System.ComponentModel.DataAnnotations.RegularExpression
-			(pattern: Domain.SeedWork.Constant.RegularExpression.EmailAddress,
+			(pattern: Constants.RegularExpression.EmailAddress,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.EmailAddress))]
 
-		//[System.ComponentModel.DataAnnotations.DataType
-		//	(dataType: System.ComponentModel.DataAnnotations.DataType.EmailAddress)]
-		public string? EmailAddress { get; set; }
+			public string? EmailAddress { get; set; }
 		// **********
 	}
 }

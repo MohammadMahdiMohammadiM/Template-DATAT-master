@@ -228,4 +228,31 @@
   <data name="Websites" xml:space="preserve">
     <value>Websites</value>
   </data>
+  <data name="RowNumber" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="Cultures" xml:space="preserve">
+    <value>Cultures</value>
+  </data>
+  <data name="PersianCulture" xml:space="preserve">
+    <value>Persian Culture</value>
+  </data>
+  <data name="EnglishCulture" xml:space="preserve">
+    <value>English Culture</value>
+  </data>
+  <data name="EnglishFlag" xml:space="preserve">
+    <value>English Flag</value>
+  </data>
+  <data name="FranceFlag" xml:space="preserve">
+    <value>France Flag</value>
+  </data>
+  <data name="IranFlag" xml:space="preserve">
+    <value>Iran Flag</value>
+  </data>
+  <data name="Flag" xml:space="preserve">
+    <value>Flag</value>
+  </data>
+  <data name="IsSystemic" xml:space="preserve">
+    <value>Systemic</value>
+  </data>
 </root>
