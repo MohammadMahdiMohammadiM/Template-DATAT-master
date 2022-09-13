@@ -22,6 +22,7 @@ internal class CultureConfiguration : object,
             IsActive = true,
             IsDefault = true,
             IsSystemic = true,
+            Description = null,
             IsDeletable = false,
         };
 
@@ -41,6 +42,7 @@ internal class CultureConfiguration : object,
             IsActive = true,
             IsDefault = false,
             IsSystemic = true,
+            Description = null,
             IsDeletable = false,
         };
 

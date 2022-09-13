@@ -21,9 +21,6 @@ public class Culture :
         Name = name;
 
         UpdateDateTime = InsertDateTime;
-
-        //Cultures =
-        //    new System.Collections.Generic.List<Culture>();
     }
 
     //// **********
@@ -86,6 +83,9 @@ public class Culture :
     [System.ComponentModel.DataAnnotations.Display
         (Name = nameof(Resources.DataDictionary.UpdateDateTime),
         ResourceType = typeof(Resources.DataDictionary))]
+
+    [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+            (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
     public System.DateTime UpdateDateTime { get; private set; }
     // **********
 
@@ -100,7 +100,5 @@ public class Culture :
         Id = id;
     }
 
-    //// **********
-    //public virtual System.Collections.Generic.IList<Culture> Cultures { get; private set; }
-    //// **********
+    
 }
