@@ -1,10 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
-using System.Data;
-
-namespace Infrastructure.TagHelpers;
+﻿namespace Infrastructure.TagHelpers;
 
 [Microsoft.AspNetCore.Razor.TagHelpers
-	.HtmlTargetElement(tag: "readonly-textarea",
+	.HtmlTargetElement(tag: Constants.TagHelper.ReadOnlyTextArea,
 	TagStructure = Microsoft.AspNetCore.Razor.TagHelpers.TagStructure.WithoutEndTag)]
 public class ReadOnlyTextAreaTagHelper :
 	Microsoft.AspNetCore.Razor.TagHelpers.TagHelper
@@ -68,7 +65,7 @@ public class ReadOnlyTextAreaTagHelper :
 		var tagBuilder =
 			Generator.GenerateLabel
 			(viewContext: ViewContext,
-			modelExplorer: For.ModelExplorer, expression: For.Name, labelText: null,
+			modelExplorer: For!.ModelExplorer, expression: For.Name, labelText: null,
 			htmlAttributes: new { @class = "form-label" });
 
 		var writer =
@@ -92,7 +89,7 @@ public class ReadOnlyTextAreaTagHelper :
 		tagBuilder =
 			Generator.GenerateTextArea
 			(viewContext: ViewContext,
-			modelExplorer: For.ModelExplorer,
+			modelExplorer: For!.ModelExplorer,
 			expression: For.Name, rows: 3, columns: 60, htmlAttributes: null);
 
 		tagBuilder.AddCssClass(value: "form-control");

@@ -1,0 +1,61 @@
+﻿@page
+@model Server.Pages.Admin.CultureManagement.UpdateModel
+
+@{
+    var pageTitle =
+        $" {Resources.ButtonCaptions.UpdateOf} {Resources.DataDictionary.Cultures} ";
+
+    ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
+}
+
+<section-page-header>
+    @(pageTitle)
+</section-page-header>
+
+<form method="post">
+
+    <input type="hidden" asp-for="ViewModel!.Id" />
+
+    <section-form>
+		<fieldset>
+			<section-form-header>
+				@(pageTitle)
+			</section-form-header>
+
+			<partial name="PartialViews/_DisplayPageMessages" />
+
+			<section-form-field>
+                <span class="fi fi-@(Model.ViewModel!.Flag)"></span>
+            </section-form-field>
+
+			<dtat-full-input asp-for="ViewModel!.Name" />
+
+			<dtat-full-checkbox asp-for="ViewModel!.IsActive" />
+
+			<dtat-full-checkbox asp-for="ViewModel!.IsDefault" />
+
+			<dtat-full-checkbox asp-for="ViewModel!.IsDeletable" />
+
+			<dtat-full-checkbox asp-for="ViewModel!.IsSystemic" />
+
+			<dtat-full-input asp-for="ViewModel!.Ordering" />
+
+			<dtat-full-textarea asp-for="ViewModel!.Description" />
+		</fieldset>
+
+		<section-form-buttons>
+			<button-save />
+			<button-reset />
+		</section-form-buttons>
+
+		<section-form-footer>
+			<a asp-page="Index">
+				@(Html.DtatGetLinkCaptionForList())
+			</a>
+			<a asp-page="Details" asp-route-id="@(Model.ViewModel!.Id)">
+				@(Html.DtatGetLinkCaptionForDetails())
+			</a>
+		</section-form-footer>
+	</section-form>
+
+</form>

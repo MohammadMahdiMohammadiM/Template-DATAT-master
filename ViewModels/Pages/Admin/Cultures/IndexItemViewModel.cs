@@ -31,10 +31,6 @@ public class IndexItemViewModel : object
     public bool IsSystemic { get; set; }
     // **********
 
-    //// **********
-    //public int CultureCount { get; set; }
-    //// **********
-
     // **********
     public System.DateTime InsertDateTime { get; set; }
     // **********

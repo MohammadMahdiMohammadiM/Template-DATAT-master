@@ -23,13 +23,6 @@ public class Culture :
         UpdateDateTime = InsertDateTime;
     }
 
-    //// **********
-    //[System.ComponentModel.DataAnnotations.Display
-    //(ResourceType = typeof(Resources.DataDictionary),
-    //Name = nameof(Resources.DataDictionary.Id))]
-    //public  System.Guid? Id { get; set; }
-    //// **********
-
     // **********
     [System.ComponentModel.DataAnnotations.Display
         (Name = nameof(Resources.DataDictionary.Name),

@@ -1,10 +1,11 @@
 using Domain;
 using System.Linq;
 using Infrastructure.Settings;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Mvc;
+using ViewModels.Pages.Admin.CultureManagement;
 
 namespace Server.Pages.Admin.CultureManagement;
 
@@ -15,7 +16,7 @@ public class IndexModel : Infrastructure.BasePageModelWithDatabaseContext
     public IndexModel
         (Data.DatabaseContext databaseContext,
         Microsoft.Extensions.Logging.ILogger<IndexModel> logger) :
-        base(databaseContext : databaseContext)
+        base(databaseContext: databaseContext)
     {
         Logger = logger;
 
@@ -38,25 +39,27 @@ public class IndexModel : Infrastructure.BasePageModelWithDatabaseContext
         <Microsoft.AspNetCore.Mvc.IActionResult> OnGetAsync()
     {
         try
-         {
-            await
-            DatabaseContext.Cultures
-            .OrderBy(current => current.Ordering)
-            .ThenBy(current => current.Name)
-            .Select(current => new ViewModels.Pages.Admin.CultureManagement.IndexItemViewModel
-            {
-                Id = current.Id,
-                Name = current.Name,
-                Flag = current.Flag,
-                Ordering = current.Ordering,
-                IsActive = current.IsActive,
-                IsDefault = current.IsDefault,
-                IsSystemic = current.IsSystemic,
-                InsertDateTime = current.InsertDateTime,
-                UpdateDateTime = current.UpdateDateTime,
-            })
-            .ToListAsync()
-            ;
+        {
+            ViewModel =
+                await
+                DatabaseContext.Cultures
+               .OrderBy(current => current.Ordering)
+               .ThenBy(current => current.Name)
+               .Select(current => new ViewModels.Pages.Admin.CultureManagement.IndexItemViewModel
+               {
+                   Id = current.Id,
+                   Name = current.Name,
+                   Flag = current.Flag,
+                   Ordering = current.Ordering,
+                   IsActive = current.IsActive,
+                   IsDefault = current.IsDefault,
+                   IsSystemic = current.IsSystemic,
+                   InsertDateTime = current.InsertDateTime,
+                   UpdateDateTime = current.UpdateDateTime,
+               })
+                .ToListAsync()
+                ;
+
         }
         catch (System.Exception ex)
         {

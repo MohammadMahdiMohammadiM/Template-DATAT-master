@@ -59,14 +59,5 @@ internal class CultureConfiguration : object,
             .IsUnique(unique: true)
             ;
         // **************************************************
-
-        //// **************************************************
-        //builder
-        //    .Property(current => current.Flag)
-        //    .HasMaxLength(maxLength: Domain.Culture.IconMaxLength)
-        //    .IsRequired(required: false)
-        //    .IsUnicode(unicode: false)
-        //    ;
-        //// **************************************************
     }
 }

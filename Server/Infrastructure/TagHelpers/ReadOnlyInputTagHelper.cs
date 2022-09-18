@@ -6,7 +6,7 @@
 /// https://stackoverflow.com/questions/46681692/combine-taghelper-statements
 /// </summary>
 [Microsoft.AspNetCore.Razor.TagHelpers
-	.HtmlTargetElement(tag: "readonly-input",
+	.HtmlTargetElement(tag: Constants.TagHelper.ReadOnlyInput,
 	TagStructure = Microsoft.AspNetCore.Razor.TagHelpers.TagStructure.WithoutEndTag)]
 public class ReadOnlyInputTagHelper :
 	Microsoft.AspNetCore.Razor.TagHelpers.TagHelper
@@ -70,7 +70,7 @@ public class ReadOnlyInputTagHelper :
 		var tagBuilder =
 			Generator.GenerateLabel
 			(viewContext: ViewContext,
-			modelExplorer: For.ModelExplorer, expression: For.Name, labelText: null,
+			modelExplorer: For!.ModelExplorer, expression: For.Name, labelText: null,
 			htmlAttributes: new { @class = "form-label" });
 
 		var writer =
@@ -93,7 +93,7 @@ public class ReadOnlyInputTagHelper :
 
 		bool leftToRight = false;
 		bool hasBeenCustomized = false;
-		object formatedValue = For.Model;
+		object formatedValue = For!.Model;
 
 		if (For.ModelExplorer.ModelType == typeof(System.Guid))
 		{
