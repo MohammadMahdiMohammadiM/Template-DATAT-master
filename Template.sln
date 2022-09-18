@@ -28,7 +28,51 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Constants.csproj", "{5A700AAA-9917-4FF3-9126-98A9E6916CD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Constants", "Constants\Constants.csproj", "{5A700AAA-9917-4FF3-9126-98A9E6916CD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint 001", "Sprint 001", "{8E5119EF-C519-4FEA-9F4A-4E138D404AC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WordFile", "WordFile", "{4F825B48-D3B1-4FE3-9FD8-046C16F45F8F}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Sprint 001\Sprint 001.docx = ..\..\Sprint 001\Sprint 001.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{08675655-CBC4-4A91-B776-5C6FCDC25006}"
+	ProjectSection(SolutionItems) = preProject
+		Persistence\Configurations\Culture\CultureConfiguration.cs = Persistence\Configurations\Culture\CultureConfiguration.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{3451053A-6C42-4341-BBCB-75F6F026962B}"
+	ProjectSection(SolutionItems) = preProject
+		Persistence\DatabaseContext.cs = Persistence\DatabaseContext.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{5C1DAB62-D448-44B4-9112-3D85746922EB}"
+	ProjectSection(SolutionItems) = preProject
+		Domain\Culture\Culture.cs = Domain\Culture\Culture.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRUD", "CRUD", "{17098063-2266-4695-B66B-90875553B507}"
+	ProjectSection(SolutionItems) = preProject
+		Server\Pages\Admin\Cultures\Details.cshtml = Server\Pages\Admin\Cultures\Details.cshtml
+		Server\Pages\Admin\Cultures\Details.cshtml.cs = Server\Pages\Admin\Cultures\Details.cshtml.cs
+		Server\Pages\Admin\Cultures\Index.cshtml = Server\Pages\Admin\Cultures\Index.cshtml
+		Server\Pages\Admin\Cultures\Index.cshtml.cs = Server\Pages\Admin\Cultures\Index.cshtml.cs
+		Server\Pages\Admin\Cultures\Update.cshtml = Server\Pages\Admin\Cultures\Update.cshtml
+		Server\Pages\Admin\Cultures\Update.cshtml.cs = Server\Pages\Admin\Cultures\Update.cshtml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{AB43B344-A98D-43BC-B62F-A5797BE5DD7E}"
+	ProjectSection(SolutionItems) = preProject
+		ViewModels\Pages\Admin\Cultures\DetailsVeiwModel.cs = ViewModels\Pages\Admin\Cultures\DetailsVeiwModel.cs
+		ViewModels\Pages\Admin\Cultures\IndexItemViewModel.cs = ViewModels\Pages\Admin\Cultures\IndexItemViewModel.cs
+		ViewModels\Pages\Admin\Cultures\UpdateViewModel.cs = ViewModels\Pages\Admin\Cultures\UpdateViewModel.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PartialViews", "PartialViews", "{468A5813-4C86-4164-96EC-A191E3D4F773}"
+	ProjectSection(SolutionItems) = preProject
+		Server\Pages\Shared\PartialViews\_LoginStatus.cshtml = Server\Pages\Shared\PartialViews\_LoginStatus.cshtml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +120,13 @@ Global
 		{FB706080-CB68-471C-B2B2-919649CD7497} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
 		{7A072591-2B39-4F10-9210-3063C0A31220} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
 		{5A700AAA-9917-4FF3-9126-98A9E6916CD4} = {D9956909-25F0-44C2-95F4-F8C79CB6DF44}
+		{4F825B48-D3B1-4FE3-9FD8-046C16F45F8F} = {8E5119EF-C519-4FEA-9F4A-4E138D404AC6}
+		{08675655-CBC4-4A91-B776-5C6FCDC25006} = {3451053A-6C42-4341-BBCB-75F6F026962B}
+		{3451053A-6C42-4341-BBCB-75F6F026962B} = {8E5119EF-C519-4FEA-9F4A-4E138D404AC6}
+		{5C1DAB62-D448-44B4-9112-3D85746922EB} = {8E5119EF-C519-4FEA-9F4A-4E138D404AC6}
+		{17098063-2266-4695-B66B-90875553B507} = {8E5119EF-C519-4FEA-9F4A-4E138D404AC6}
+		{AB43B344-A98D-43BC-B62F-A5797BE5DD7E} = {8E5119EF-C519-4FEA-9F4A-4E138D404AC6}
+		{468A5813-4C86-4164-96EC-A191E3D4F773} = {8E5119EF-C519-4FEA-9F4A-4E138D404AC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2B1A580-9B54-4F8E-A48F-A1097A5C5F8C}

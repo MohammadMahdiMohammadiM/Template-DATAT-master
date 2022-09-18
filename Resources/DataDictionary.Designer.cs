@@ -187,15 +187,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to France Flag.
-        /// </summary>
-        public static string FranceFlag {
-            get {
-                return ResourceManager.GetString("FranceFlag", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Full Name.
         /// </summary>
         public static string FullName {
@@ -309,15 +300,6 @@ namespace Resources {
         public static string ListOf {
             get {
                 return ResourceManager.GetString("ListOf", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to List of Cultures.
-        /// </summary>
-        public static string ListOfCultures {
-            get {
-                return ResourceManager.GetString("ListOfCultures", resourceCulture);
             }
         }
         

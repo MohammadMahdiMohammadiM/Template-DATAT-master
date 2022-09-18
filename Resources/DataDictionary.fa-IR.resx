@@ -159,9 +159,6 @@
   <data name="Flag" xml:space="preserve">
     <value>پرچم</value>
   </data>
-  <data name="FranceFlag" xml:space="preserve">
-    <value>پرچم فرانسه</value>
-  </data>
   <data name="FullName" xml:space="preserve">
     <value>نام و نام خانوادگی</value>
   </data>
@@ -200,9 +197,6 @@
   </data>
   <data name="ListOf" xml:space="preserve">
     <value>فهرست </value>
-  </data>
-  <data name="ListOfCultures" xml:space="preserve">
-    <value>فهرست زبان ها</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>نام</value>

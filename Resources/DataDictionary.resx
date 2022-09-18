@@ -180,9 +180,6 @@
   <data name="ListOf" xml:space="preserve">
     <value>List of </value>
   </data>
-  <data name="ListOfCultures" xml:space="preserve">
-    <value>List of Cultures</value>
-  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -242,9 +239,6 @@
   </data>
   <data name="EnglishFlag" xml:space="preserve">
     <value>English Flag</value>
-  </data>
-  <data name="FranceFlag" xml:space="preserve">
-    <value>France Flag</value>
   </data>
   <data name="IranFlag" xml:space="preserve">
     <value>Iran Flag</value>
